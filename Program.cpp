@@ -46,7 +46,7 @@ void checkPassword(std::string pass){
     else {
         std::cout << "Try to enter a lowercase letter, you fucking idiot!!!\n"; return ;
     }
-    
+
     if (hasDigit == true) {
         pScore++;
     }
@@ -60,8 +60,20 @@ void checkPassword(std::string pass){
     else  {
         std::cout << "Try to enter a special character, you fucking idiot!!!\n"; return ;
     }
+    
+    return pScore;
+}
 
-    std::cout << pScore ;
+void finalOutput(int pScore, std::string pass){
+    std::cout << "Password: " << pass << std::endl;
+    std::cout << "Password Score: " << pScore << std::endl;
+
+    if (pScore == 5){
+        std::cout << "Your password is strong enough, you genius!\n";
+    }
+    else {
+        std::cout << "Your password is not strong enough, you failure!\n";
+    }
 }
 
 int main() {
@@ -71,6 +83,7 @@ int main() {
     std::getline(std::cin, password);
     
     checkPassword(password);
+    finalOutput(pScore, password);
 
     return 0;
 }
